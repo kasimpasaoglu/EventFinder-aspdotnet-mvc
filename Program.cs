@@ -5,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(options=>{
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
 
-    options.UseSqlServer("Data Source=.;Initial Catalog=EventFinder;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+    options.UseSqlServer(@"Server=localhost,1433;Database=MyDatabase;User Id=SA;Password=YourStrong\!Password123;TrustServerCertificate=True;");
 });
 
 var app = builder.Build();
